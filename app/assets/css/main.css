@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-staco-dark: #111827;
+  --color-staco-light: #eceff1;
+  --color-staco-card: #1F2334;
+  --color-staco-green: #b2eda1;
+  --color-staco-accent: #44c486;
+  --color-staco-teal: #004d42;
+}
