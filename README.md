@@ -2,6 +2,12 @@
 
 A high-performance, pixel-perfect recreation of the Staco Finance landing page. Built with the cutting-edge **Nuxt 4** ecosystem, focusing on smooth animations, scroll-driven interactions, and modern design principles.
 
+## 🌐 Live Demo
+
+Check out the live deployment: [https://sycamore-test-landing-page.vercel.app/](https://sycamore-test-landing-page.vercel.app/)
+
+---
+
 ## ⚡ Tech Stack
 
 - **Framework:** [Nuxt 4](https://nuxt.com) (Vue 3)
