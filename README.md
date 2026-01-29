@@ -1,60 +1,84 @@
-# Nuxt Starter Template
+# Sycamore UI Test: Staco Finance - Nuxt 4 Landing Page
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+A high-performance, pixel-perfect recreation of the Staco Finance landing page. Built with the cutting-edge **Nuxt 4** ecosystem, focusing on smooth animations, scroll-driven interactions, and modern design principles.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+## ⚡ Tech Stack
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+- **Framework:** [Nuxt 4](https://nuxt.com) (Vue 3)
+- **UI Library:** [Nuxt UI](https://ui.nuxt.com)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com) (via `@nuxt/ui`)
+- **Animations:**
+  - `@vueuse/motion` (Element transitions, slide-ins)
+  - `@vueuse/core` (Parallax, scroll detection, counters)
+- **Icons:** Lucide & Heroicons (via Nuxt UI)
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-  </picture>
-</a>
+## ✨ Key Features
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+- **Smart Navigation:**
+  - "Motion Pill" active state indicator.
+  - Glassmorphism effect on scroll.
+  - Auto-hide on scroll down, reveal on scroll up.
+- **Interactive Hero:**
+  - Rotating text typewriter effect.
+  - Video modal/playback integration.
+- **Scroll Animations:**
+  - **Parallax Illustration:** The CTA illustration rises/sinks based on scroll direction.
+  - **Animated Counters:** Statistics count up smoothly when entering the viewport.
+  - **Section Transitions:** Elements slide in using spring physics.
+- **Fully Responsive:** Mobile-first design with a custom slide-over menu for smaller screens.
 
-## Quick Start
+## 🚀 Getting Started
 
-```bash [Terminal]
-npm create nuxt@latest -- -t github:nuxt-ui-templates/starter
-```
+> **Important:** This project uses **npm**. Do not mix package managers (pnpm/yarn) to avoid dependency conflicts with Vue instances.
 
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### 1. Clone the repository
 
 ```bash
-pnpm dev
+git clone <repository-url>
+cd staco-finance
 ```
 
-## Production
-
-Build the application for production:
+### 2. Install Dependencies
 
 ```bash
-pnpm build
+npm install
 ```
 
-Locally preview production build:
+### 3. Run Development Server
 
 ```bash
-pnpm preview
+npm run dev
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Access the app at `http://localhost:3000`.
+
+### 4. Build for Production
+
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+```
+├── app/
+│   └── assets/
+│       └── css/
+│           └── main.css        # Tailwind 4 theme configuration
+│   ├── components/
+│   │   ├── TheNavbar.vue       # Smart header with scroll logic
+│   │   ├── TheFooter.vue       # Static footer with links
+│   │   └── AppLogo.vue         # Brand assets
+│   ├── layouts/
+│   │   └── default.vue         # Global wrapper (Navbar + Slot + Footer)
+│   ├── pages/
+│   │   └── index.vue           # Main landing page (Hero, Features, CTA)
+├── public/                     # Static assets (Videos, SVGs)
+├── nuxt.config.ts              # Nuxt 4 configuration
+└── package.json
+```
+
+## 🎨 Design Notes
+
+- **Theme:** The project uses a custom Tailwind theme defined in `main.css` to match Staco's brand colors (`--color-staco-green`, `--color-staco-dark`, etc.).
+- **Performance:** Uses `v-motion` directives for performant, hardware-accelerated animations instead of heavy JavaScript scroll listeners where possible.

@@ -13,7 +13,7 @@
         class="px-0! pt-26 pb-10 md:pt-16 md:pb-2 lg:pb-0 lg:px-4 xl:pt-32 xl:pb-18"
       >
         <span
-          class="hidden md:block absolute h-[34%] right-[18%] -top-16 z-20 scale-80 lg:h-[44%] lg:right-[26.5%] lg:-top-10 xl:scale-100 xl:right-[25%] opacity-60"
+          class="hidden md:block absolute h-[34%] right-[18%] -top-16 z-20 scale-80 lg:h-[44%] lg:right-[26.5%] lg:-top-10 xl:scale-100 xl:right-[25%]"
         >
           <svg
             width="299"
@@ -31,7 +31,7 @@
           </svg>
         </span>
         <span
-          class="hidden md:block absolute h-[59%] right-[29%] bottom-30 z-0 scale-80 lg:h-[69%] lg:right-[35%] lg:bottom-18 xl:scale-100 xl:right-[32%] xl:-bottom-2 opacity-60"
+          class="hidden md:block absolute h-[59%] right-[29%] bottom-30 z-0 scale-80 lg:h-[69%] lg:right-[35%] lg:bottom-18 xl:scale-100 xl:right-[32%] xl:-bottom-2"
         >
           <svg
             width="275"
@@ -58,7 +58,7 @@
             :enter="{
               opacity: 1,
               y: 0,
-              transition: { duration: 800, ease: 'easeOut' },
+              transition: { duration: 500, ease: 'easeOut' },
             }"
           >
             <h1
@@ -111,11 +111,11 @@
           <div
             class="md:w-1/2 md:flex-[0_0_auto] md:pr-4"
             v-motion
-            :initial="{ opacity: 0, x: 100 }"
+            :initial="{ opacity: 0, y: 100 }"
             :enter="{
               opacity: 1,
-              x: 0,
-              transition: { duration: 1000, delay: 200, ease: 'easeOut' },
+              y: 0,
+              transition: { duration: 600, delay: 200, ease: 'easeOut' },
             }"
           >
             <div>
@@ -170,8 +170,8 @@
           variant="soft"
           class="bg-staco-light py-10 px-7.5 rounded-[30px] group transition duration-300"
           :ui="{ body: 'p-0 sm:p-0' }"
-          v-motion-slide-visible-bottom
-          :delay="index * 200"
+          v-motion-slide-visible-once-bottom
+          :delay="index * 50"
         >
           <div class="w-12.5 h-12.5 flex items-center justify-center mb-8">
             <img :src="feature.iconSvg" alt="icon" />
@@ -231,9 +231,8 @@
 
           <!-- Right Content - Illustration -->
           <div
+            ref="illustrationContainer"
             class="relative h-64 lg:h-80 flex items-end justify-center"
-            v-motion-slide-visible-right
-            :delay="300"
           >
             <img
               src="data:image/svg+xml,%3csvg%20width='372'%20height='250'%20viewBox='0%200%20372%20250'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M120.81%20137.65L15.7733%20235.304L0%20249.943L46.5404%20250L58.3819%20235.35L137.134%20137.65H120.81Z'%20fill='%2395A196'/%3e%3cpath%20d='M149.295%20137.65L90.2023%20235.304L81.3184%20249.943L127.882%20250L132.822%20235.35L165.618%20137.65H149.295Z'%20fill='%2385A088'/%3e%3cpath%20d='M177.781%20137.65L164.622%20235.304L162.627%20249.943L209.225%20250L207.276%20235.35L194.105%20137.65H177.781Z'%20fill='%235C9F63'/%3e%3cpath%20d='M206.268%20137.65L239.052%20235.304L243.947%20249.943L290.579%20250L281.73%20235.35L222.591%20137.65H206.268Z'%20fill='%23439F4D'/%3e%3cpath%20d='M234.754%20137.65L313.471%20235.304L325.267%20249.943L371.922%20250L356.172%20235.35L251.077%20137.65H234.754Z'%20fill='%23019D12'/%3e%3cpath%20d='M137.134%20105.312H120.811V137.65H137.134V105.312Z'%20fill='%2322675D'/%3e%3cpath%20d='M165.62%2086.6959H149.297V137.65H165.62V86.6959Z'%20fill='%2330766C'/%3e%3cpath%20d='M194.105%2066.1309H177.781V137.65H194.105V66.1309Z'%20fill='%233A8A7F'/%3e%3cpath%20d='M222.591%2045.1879H206.268V137.65H222.591V45.1879Z'%20fill='%236CA88B'/%3e%3cpath%20d='M251.077%2023.8549H234.754V137.65H251.077V23.8549Z'%20fill='%2344C486'/%3e%3cpath%20d='M120.81%20137.65L15.7733%20235.304L0%20249.943L46.5404%20250L58.3819%20235.35L137.134%20137.65H120.81Z'%20fill='white'/%3e%3cpath%20d='M149.295%20137.65L90.2023%20235.304L81.3184%20249.943L127.882%20250L132.822%20235.35L165.618%20137.65H149.295Z'%20fill='white'/%3e%3cpath%20d='M177.781%20137.65L164.622%20235.304L162.627%20249.943L209.225%20250L207.276%20235.35L194.105%20137.65H177.781Z'%20fill='white'/%3e%3cpath%20d='M206.268%20137.65L239.052%20235.304L243.947%20249.943L290.579%20250L281.73%20235.35L222.591%20137.65H206.268Z'%20fill='white'/%3e%3cpath%20d='M234.754%20137.65L313.471%20235.304L325.267%20249.943L371.922%20250L356.172%20235.35L251.077%20137.65H234.754Z'%20fill='white'/%3e%3cpath%20d='M127.919%2087.8536L108.764%20114.609H147.085L127.919%2087.8536Z'%20fill='%2322675D'/%3e%3cpath%20d='M157.596%2065.168L138.43%2091.9115H176.751L157.596%2065.168Z'%20fill='%2330766C'/%3e%3cpath%20d='M185.52%2043.0557L166.365%2069.7992H204.687L185.52%2043.0557Z'%20fill='%233A8A7F'/%3e%3cpath%20d='M214.419%2022.1124L195.264%2048.856H233.585L214.419%2022.1124Z'%20fill='%236CA88B'/%3e%3cpath%20d='M242.536%200L223.381%2026.7435H261.702L242.536%200Z'%20fill='%2344C486'/%3e%3c/svg%3e"
@@ -249,10 +248,10 @@
       :ui="{ container: 'py-0! relative xl:px-0!' }"
     >
       <div
-        class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-30"
+        class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
         v-motion
         :initial="{ y: 50, opacity: 0 }"
-        :visible="{ y: 0, opacity: 0.3, transition: { duration: 1500 } }"
+        :visible="{ y: 0, opacity: 1, transition: { duration: 1500 } }"
       >
         <img src="/vector-map.svg" alt="map" class="absolute" />
       </div>
@@ -286,7 +285,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useElementVisibility, useTransition } from "@vueuse/core";
+import {
+  useElementVisibility,
+  useTransition,
+  useElementBounding,
+  useWindowSize,
+} from "@vueuse/core";
 
 const rotatingText = ref<HTMLElement | null>(null);
 const videoElement = ref<HTMLVideoElement | null>(null);
@@ -294,6 +298,11 @@ const counterSection = ref<HTMLElement | null>(null);
 const isPlaying = ref(true);
 const progressWidth = ref(0);
 const isAnimating = ref(false);
+
+// parallax effect for illustration
+const illustrationContainer = ref(null);
+const { top, height } = useElementBounding(illustrationContainer);
+const { height: windowHeight } = useWindowSize();
 
 let currentIndex = 0;
 const words = ["Easier", "Accountable", "Unbeatable"];
@@ -382,6 +391,19 @@ const togglePlayback = () => {
     isPlaying.value = !isPlaying.value;
   }
 };
+
+const parallaxY = computed(() => {
+  if (!top.value) return "100%";
+
+  const viewportBottom = windowHeight.value;
+  const elementBottom = top.value + height.value;
+
+  const dist = elementBottom - viewportBottom;
+
+  const percentage = Math.max(0, Math.min(100, dist / 3));
+
+  return `${percentage}%`;
+});
 
 // Watch visibility to trigger animation
 watch(targetIsVisible, (isVisible) => {
