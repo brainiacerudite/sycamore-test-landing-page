@@ -72,6 +72,11 @@ npm run build
 │       └── css/
 │           └── main.css        # Tailwind 4 theme configuration
 │   ├── components/
+│   │   ├── home/
+│   │   │   ├── HeroSection.vue     # Hero with rotating text & video
+│   │   │   ├── FeaturesSection.vue # Feature cards with animations
+│   │   │   ├── StatsSection.vue    # Animated counter statistics
+│   │   │   └── CtaSection.vue      # Call-to-action with parallax
 │   │   ├── TheNavbar.vue       # Smart header with scroll logic
 │   │   ├── TheFooter.vue       # Static footer with links
 │   │   └── AppLogo.vue         # Brand assets
