@@ -35,7 +35,7 @@
                 v-for="(link, index) in links"
                 :key="link.label"
                 :to="link.to"
-                :ref="(el) => setTabRef(el, index)"
+                :ref="(el: any) => setTabRef(el, index)"
                 @click="setActiveTab(index)"
                 active-class="text-white font-semibold"
                 class="relative z-10 text-[15px] font-medium text-gray-300 hover:text-white transition-colors px-6 py-2"
