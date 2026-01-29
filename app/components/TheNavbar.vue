@@ -4,8 +4,8 @@
     :class="[
       isNavbarVisible ? 'translate-y-0' : '-translate-y-full',
       isScrolled
-        ? 'bg-white/80 backdrop-blur-md shadow-sm py-2'
-        : 'bg-transparent py-4',
+        ? 'bg-white/80 backdrop-blur-md shadow-sm'
+        : 'bg-white lg:py-4 lg:bg-transparent',
     ]"
   >
     <UContainer>
@@ -25,7 +25,7 @@
         </div>
 
         <div
-          class="w-full flex items-center justify-between h-20 lg:px-4 lg:py- lg:absolute lg:rounded-full"
+          class="w-full flex items-center justify-between h-20 lg:px-4 lg:py-0 lg:absolute lg:rounded-full"
         >
           <div class="shrink-0">
             <ULink to="/" class="flex items-center gap-2">
@@ -93,7 +93,7 @@
             <UButton
               class="p-1!"
               variant="ghost"
-              :class="isScrolled ? 'text-gray-700' : 'text-white'"
+              :class="isScrolled ? 'text-gray-700' : 'text-black'"
               @click="isMobileMenuOpen = !isMobileMenuOpen"
             >
               <UIcon
