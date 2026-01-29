@@ -71,7 +71,6 @@
 
             <div class="lg:hidden">
               <UButton
-                icon=""
                 class="text-gray-600 p-1!"
                 variant="ghost"
                 @click="isMobileMenuOpen = !isMobileMenuOpen"
@@ -124,7 +123,7 @@
     </header>
 
     <UMain>
-      <NuxtPage />
+      <slot />
     </UMain>
 
     <div class="mt-20 bg-staco-light pt-20 pb-5">
@@ -247,7 +246,7 @@
         </UContainer>
 
         <!-- Footer Bottom -->
-        <UDivider class="opacity-20" />
+        <!-- <UDivider class="opacity-20" /> -->
         <UContainer>
           <div class="py-6 lg:py-8">
             <div
@@ -295,7 +294,7 @@ const isMobileMenuOpen = ref(false);
 const activeTab = ref(0);
 const indicatorLeft = ref(0);
 const indicatorWidth = ref(0);
-const tabRefs = ref<(HTMLElement | null)[]>([]);
+const tabRefs = ref<HTMLElement[]>([]);
 
 const links = [
   { label: "Home", to: "/" },
@@ -304,52 +303,6 @@ const links = [
   { label: "Blogs", to: "#blog" },
   { label: "Contact Us", to: "#contact" },
 ];
-
-const setTabRef = (el: any, index: number) => {
-  if (el) {
-    tabRefs.value[index] = el.$el || el;
-  }
-};
-
-const setActiveTab = (index: number) => {
-  activeTab.value = index;
-  updateIndicator();
-};
-
-const updateIndicator = () => {
-  const activeElement = tabRefs.value[activeTab.value];
-  if (activeElement) {
-    indicatorLeft.value = activeElement.offsetLeft;
-    indicatorWidth.value = activeElement.offsetWidth;
-  }
-};
-
-onMounted(() => {
-  // Initialize indicator position
-  nextTick(() => {
-    updateIndicator();
-  });
-
-  // Update on window resize
-  window.addEventListener("resize", updateIndicator);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", updateIndicator);
-});
-
-watch(
-  () => route.path,
-  () => {
-    const index = links.findIndex((item) => item.to === route.path);
-    if (index !== -1) {
-      activeTab.value = index;
-      nextTick(() => {
-        updateIndicator();
-      });
-    }
-  },
-);
 
 const socialLinks = [
   { icon: "i-simple-icons-facebook" },
@@ -373,8 +326,54 @@ const footerLinks = {
 };
 
 const privacyLinks = [
-  { label: "Terms and conditions", to: "/terms" },
+  { label: "Terms and conditions", to: "#" },
   { label: "Cookies", to: "#" },
-  { label: "Privacy policy", to: "/privacy-policy" },
+  { label: "Privacy policy", to: "#" },
 ];
+
+const setTabRef = (
+  el: Element | ComponentPublicInstance | null,
+  index: number,
+) => {
+  if (el) {
+    // If it's a component, get $el, otherwise it's the element itself
+    tabRefs.value[index] =
+      "$el" in el ? (el.$el as HTMLElement) : (el as HTMLElement);
+  }
+};
+
+const setActiveTab = (index: number) => {
+  activeTab.value = index;
+  updateIndicator();
+};
+
+const updateIndicator = () => {
+  const activeElement = tabRefs.value[activeTab.value];
+  if (activeElement) {
+    indicatorLeft.value = activeElement.offsetLeft;
+    indicatorWidth.value = activeElement.offsetWidth;
+  }
+};
+
+watch(
+  () => route.path,
+  () => {
+    const index = links.findIndex((item) => item.to === route.path);
+    if (index !== -1) {
+      activeTab.value = index;
+      nextTick(() => {
+        updateIndicator();
+      });
+    }
+  },
+);
+
+onMounted(() => {
+  nextTick(() => updateIndicator());
+  window.addEventListener("resize", updateIndicator);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateIndicator);
+});
 </script>

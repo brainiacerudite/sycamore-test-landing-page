@@ -1,51 +1,66 @@
 <template>
   <div>
     <UPageSection class="relative bg-staco-card overflow-hidden lg:pb-4">
-      <span class="absolute z-0 right-[20%] top-[20%]"
-        ><img
-          src="data:image/svg+xml,%3csvg%20width='39'%20height='45'%20viewBox='0%200%2039%2045'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M4.35993%208.12197C-0.593748%2013.8731%20-1.08911%2028.1803%202.52242%2035.9656C7.8417%2047.1326%2027.7987%2047.1679%2033.3327%2036.604C37.5794%2028.3821%2036.4727%2017.5359%2038.6821%200.572389C22.3362%203.68367%209.16665%202.37763%204.35993%208.12197Z'%20fill='%23B2EDA1'%20fill-opacity='0.3'/%3e%3c/svg%3e"
-          alt="img1"
-      /></span>
-      <span class="absolute z-0 left-[44%] top-[35%]"
-        ><img
-          src="data:image/svg+xml,%3csvg%20width='52'%20height='41'%20viewBox='0%200%2052%2041'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M18.6144%200.0465448C13.3054%20-0.784969%201.64645%209.71291%200.397269%2016.469C-1.99699%2029.5653%206.64316%2041.5183%2020.5923%2040.8947C28.816%2040.4789%2036.6234%2031.2283%2051.9258%2021.2502C36.4152%2010.7523%2028.0873%201.81351%2018.6144%200.0465448Z'%20fill='%23B2EDA1'%20fill-opacity='0.3'/%3e%3c/svg%3e"
-          alt="img2"
-      /></span>
-      <span class="absolute z-0 left-[45%] bottom-[18%]"
-        ><img
-          src="data:image/svg+xml,%3csvg%20width='46'%20height='36'%20viewBox='0%200%2046%2036'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11.4394%203.70549C-0.531861%2010.5655%20-4.38354%2021.3752%206.75495%2035.7188C18.3098%2031.2494%2030.3852%2026.5721%2046%2020.5437C36.3188%202.66613%2026.3254%20-5.0254%2011.4394%203.70549Z'%20fill='%23B2EDA1'%20fill-opacity='0.3'/%3e%3c/svg%3e"
-          alt="img3"
-      /></span>
-      <span class="absolute z-0 left-[25%] bottom-[13%]"
-        ><img
-          src="data:image/svg+xml,%3csvg%20width='22'%20height='12'%20viewBox='0%200%2022%2012'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M2.87043%2011.9367C9.11631%2010.5855%2015.5704%209.1303%2021.8163%207.77909C21.3999%205.28455%2021.0876%202.89395%2020.6712%200.399414C14.0089%201.02305%207.34665%201.64669%200.892578%202.27032C1.51717%205.59638%202.24584%208.71455%202.87043%2011.9367Z'%20fill='%23B2EDA1'%20fill-opacity='0.3'/%3e%3c/svg%3e"
-          alt="img5"
-      /></span>
-      <span class="absolute z-0 left-[35%] top-[18%]"
-        ><img
-          src="data:image/svg+xml,%3csvg%20width='49'%20height='47'%20viewBox='0%200%2049%2047'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.82762%207.31652C-2.25929%2015.2616%20-1.57861%2029.3022%208.24752%2039.1752C17.8521%2048.9776%2031.6961%2050.2641%2039.7268%2038.9026C45.4458%2031.1026%2044.49%2018.684%2048.0973%200.246201C29.4497%203.29007%2016.6336%201.84265%208.82762%207.31652Z'%20fill='%23B2EDA1'%20fill-opacity='0.3'/%3e%3c/svg%3e"
-          alt="img6"
-      /></span>
+      <span
+        v-for="(icon, index) in backgroundIcons"
+        :key="index"
+        class="absolute z-0 pointer-events-none"
+        :class="icon.positionClass"
+        v-html="icon.svg"
+      />
 
       <UContainer
         class="px-0! pt-26 pb-10 md:pt-16 md:pb-2 lg:pb-0 lg:px-4 xl:pt-32 xl:pb-18"
       >
         <span
-          class="hidden md:block absolute h-[34%] right-[18%] -top-16 z-20 scale-80 lg:h-[44%] lg:right-[26.5%] lg:-top-10 xl:scale-100 xl:right-[25%]"
-          ><img
-            src="data:image/svg+xml,%3csvg%20width='299'%20height='353'%20viewBox='0%200%20299%20353'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M82.8994%20299.957C1.6656%20202.325%20-35.6931%20344.357%2074.3868%20347.838C184.467%20351.319%20385.434%20265.915%20246.722%200.984375'%20stroke='%23B2EDA1'%20stroke-width='10'%20stroke-miterlimit='10'/%3e%3c/svg%3e"
-            alt="img"
-        /></span>
+          class="hidden md:block absolute h-[34%] right-[18%] -top-16 z-20 scale-80 lg:h-[44%] lg:right-[26.5%] lg:-top-10 xl:scale-100 xl:right-[25%] opacity-60"
+        >
+          <svg
+            width="299"
+            height="353"
+            viewBox="0 0 299 353"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M82.8994 299.957C1.6656 202.325 -35.6931 344.357 74.3868 347.838C184.467 351.319 385.434 265.915 246.722 0.984375"
+              stroke="#B2EDA1"
+              stroke-width="10"
+              stroke-miterlimit="10"
+            />
+          </svg>
+        </span>
         <span
-          class="hidden md:block absolute h-[59%] right-[29%] bottom-30 z-0 scale-80 lg:h-[69%] lg:right-[35%] lg:bottom-18 xl:scale-100 xl:right-[32%] xl:-bottom-2"
-          ><img
-            src="data:image/svg+xml,%3csvg%20width='275'%20height='605'%20viewBox='0%200%20275%20605'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1.71289%20599.989C1.71289%20599.989%20468.069%20436.813%20169.913%202.97119'%20stroke='%23B2EDA1'%20stroke-width='10'%20stroke-miterlimit='10'/%3e%3c/svg%3e"
-            alt="img"
-        /></span>
+          class="hidden md:block absolute h-[59%] right-[29%] bottom-30 z-0 scale-80 lg:h-[69%] lg:right-[35%] lg:bottom-18 xl:scale-100 xl:right-[32%] xl:-bottom-2 opacity-60"
+        >
+          <svg
+            width="275"
+            height="605"
+            viewBox="0 0 275 605"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.71289 599.989C1.71289 599.989 468.069 436.813 169.913 2.97119"
+              stroke="#B2EDA1"
+              stroke-width="10"
+              stroke-miterlimit="10"
+            />
+          </svg>
+        </span>
 
         <div class="flex flex-col gap-12 md:gap-6 md:flex-row lg:items-start">
           <!-- Left Content -->
-          <div class="md:w-1/2 md:flex-[0_0_auto] space-y-8 text-white">
+          <div
+            class="md:w-1/2 md:flex-[0_0_auto] space-y-8 text-white"
+            v-motion
+            :initial="{ opacity: 0, y: 100 }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 800, ease: 'easeOut' },
+            }"
+          >
             <h1
               class="text-[34px] md:text-[40px] lg:text-6xl font-bold leading-tight"
             >
@@ -93,7 +108,16 @@
           </div>
 
           <!-- Right Content - Video -->
-          <div class="md:w-1/2 md:flex-[0_0_auto] md:pr-4">
+          <div
+            class="md:w-1/2 md:flex-[0_0_auto] md:pr-4"
+            v-motion
+            :initial="{ opacity: 0, x: 100 }"
+            :enter="{
+              opacity: 1,
+              x: 0,
+              transition: { duration: 1000, delay: 200, ease: 'easeOut' },
+            }"
+          >
             <div>
               <div
                 class="relative z-10 flex items-center justify-center max-w-117.5 w-full mr-auto h-full lg:mr-4 lg:ml-auto"
@@ -146,6 +170,8 @@
           variant="soft"
           class="bg-staco-light py-10 px-7.5 rounded-[30px] group transition duration-300"
           :ui="{ body: 'p-0 sm:p-0' }"
+          v-motion-slide-visible-bottom
+          :delay="index * 200"
         >
           <div class="w-12.5 h-12.5 flex items-center justify-center mb-8">
             <img :src="feature.iconSvg" alt="icon" />
@@ -178,6 +204,8 @@
       <UCard
         class="bg-staco-teal overflow-hidden rounded-[30px]"
         :ui="{ body: 'p-0' }"
+        v-motion-fade-visible
+        :duration="800"
       >
         <div
           class="grid md:grid-cols-2 gap-2 items-center px-12 lg:px-16 xl:px-17.5"
@@ -202,12 +230,14 @@
           </div>
 
           <!-- Right Content - Illustration -->
-          <div class="relative h-64 lg:h-80 flex items-end justify-center">
+          <div
+            class="relative h-64 lg:h-80 flex items-end justify-center"
+            v-motion-slide-visible-right
+            :delay="300"
+          >
             <img
-              ref="illustrationElement"
               src="data:image/svg+xml,%3csvg%20width='372'%20height='250'%20viewBox='0%200%20372%20250'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M120.81%20137.65L15.7733%20235.304L0%20249.943L46.5404%20250L58.3819%20235.35L137.134%20137.65H120.81Z'%20fill='%2395A196'/%3e%3cpath%20d='M149.295%20137.65L90.2023%20235.304L81.3184%20249.943L127.882%20250L132.822%20235.35L165.618%20137.65H149.295Z'%20fill='%2385A088'/%3e%3cpath%20d='M177.781%20137.65L164.622%20235.304L162.627%20249.943L209.225%20250L207.276%20235.35L194.105%20137.65H177.781Z'%20fill='%235C9F63'/%3e%3cpath%20d='M206.268%20137.65L239.052%20235.304L243.947%20249.943L290.579%20250L281.73%20235.35L222.591%20137.65H206.268Z'%20fill='%23439F4D'/%3e%3cpath%20d='M234.754%20137.65L313.471%20235.304L325.267%20249.943L371.922%20250L356.172%20235.35L251.077%20137.65H234.754Z'%20fill='%23019D12'/%3e%3cpath%20d='M137.134%20105.312H120.811V137.65H137.134V105.312Z'%20fill='%2322675D'/%3e%3cpath%20d='M165.62%2086.6959H149.297V137.65H165.62V86.6959Z'%20fill='%2330766C'/%3e%3cpath%20d='M194.105%2066.1309H177.781V137.65H194.105V66.1309Z'%20fill='%233A8A7F'/%3e%3cpath%20d='M222.591%2045.1879H206.268V137.65H222.591V45.1879Z'%20fill='%236CA88B'/%3e%3cpath%20d='M251.077%2023.8549H234.754V137.65H251.077V23.8549Z'%20fill='%2344C486'/%3e%3cpath%20d='M120.81%20137.65L15.7733%20235.304L0%20249.943L46.5404%20250L58.3819%20235.35L137.134%20137.65H120.81Z'%20fill='white'/%3e%3cpath%20d='M149.295%20137.65L90.2023%20235.304L81.3184%20249.943L127.882%20250L132.822%20235.35L165.618%20137.65H149.295Z'%20fill='white'/%3e%3cpath%20d='M177.781%20137.65L164.622%20235.304L162.627%20249.943L209.225%20250L207.276%20235.35L194.105%20137.65H177.781Z'%20fill='white'/%3e%3cpath%20d='M206.268%20137.65L239.052%20235.304L243.947%20249.943L290.579%20250L281.73%20235.35L222.591%20137.65H206.268Z'%20fill='white'/%3e%3cpath%20d='M234.754%20137.65L313.471%20235.304L325.267%20249.943L371.922%20250L356.172%20235.35L251.077%20137.65H234.754Z'%20fill='white'/%3e%3cpath%20d='M127.919%2087.8536L108.764%20114.609H147.085L127.919%2087.8536Z'%20fill='%2322675D'/%3e%3cpath%20d='M157.596%2065.168L138.43%2091.9115H176.751L157.596%2065.168Z'%20fill='%2330766C'/%3e%3cpath%20d='M185.52%2043.0557L166.365%2069.7992H204.687L185.52%2043.0557Z'%20fill='%233A8A7F'/%3e%3cpath%20d='M214.419%2022.1124L195.264%2048.856H233.585L214.419%2022.1124Z'%20fill='%236CA88B'/%3e%3cpath%20d='M242.536%200L223.381%2026.7435H261.702L242.536%200Z'%20fill='%2344C486'/%3e%3c/svg%3e"
               alt="img"
-              :style="{ transform: `translateY(${illustrationOffset}px)` }"
             />
           </div>
         </div>
@@ -219,22 +249,12 @@
       :ui="{ container: 'py-0! relative xl:px-0!' }"
     >
       <div
-        class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
+        class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-30"
+        v-motion
+        :initial="{ y: 50, opacity: 0 }"
+        :visible="{ y: 0, opacity: 0.3, transition: { duration: 1500 } }"
       >
-        <img
-          ref="mapElement"
-          src="/vector-map.svg"
-          alt="map"
-          class="absolute"
-          :style="{
-            left: '50%',
-            transform: `translate3d(-50%, ${mapOffset}px, 0px)`,
-            transformStyle: 'preserve-3d',
-            backfaceVisibility: 'hidden',
-            width: '1430px',
-            height: 'auto',
-          }"
-        />
+        <img src="/vector-map.svg" alt="map" class="absolute" />
       </div>
 
       <!-- Counter Content -->
@@ -247,9 +267,11 @@
               class="text-center md:text-left"
             >
               <div class="mb-4">
-                <h2 class="text-3xl font-bold text-staco-teal xl:text-[48px]">
-                  <span>{{ animatedCounts[index] }}</span>
-                  <span v-if="stat.suffix">{{ stat.suffix }}</span>
+                <h2 class="text-4xl lg:text-[56px] font-bold text-staco-teal">
+                  <span>{{ Math.round(stat.currentValue.value) }}</span>
+                  <span v-if="stat.suffix" class="text-3xl lg:text-[40px]">{{
+                    stat.suffix
+                  }}</span>
                 </h2>
               </div>
               <p class="text-lg text-staco-teal">
@@ -264,162 +286,113 @@
 </template>
 
 <script lang="ts" setup>
+import { useElementVisibility, useTransition } from "@vueuse/core";
+
 const rotatingText = ref<HTMLElement | null>(null);
 const videoElement = ref<HTMLVideoElement | null>(null);
-const illustrationElement = ref<HTMLElement | null>(null);
 const counterSection = ref<HTMLElement | null>(null);
-const mapElement = ref<HTMLElement | null>(null);
 const isPlaying = ref(true);
 const progressWidth = ref(0);
 const isAnimating = ref(false);
-const illustrationOffset = ref(100);
-const mapOffset = ref(0);
-const animatedCounts = ref([0, 0, 0]);
-const hasCountedUp = ref(false);
 
-const words = ["Easier", "Accountable", "Unbeatable"];
 let currentIndex = 0;
+const words = ["Easier", "Accountable", "Unbeatable"];
 
-const stats = [
+const statsData = [
   { target: 200, suffix: "", label: "Countries Worldwide" },
   { target: 156, suffix: "K", label: "Registered User" },
   { target: 23, suffix: "K", label: "Small & Big Companies" },
 ];
 
-const animateCounter = (
-  index: number,
-  target: number,
-  duration: number = 2000,
-) => {
-  const startTime = performance.now();
-  const startValue = 0;
-
-  const updateCount = (currentTime: number) => {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Easing function for smooth animation
-    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-    animatedCounts.value[index] = Math.floor(easeOutQuart * target);
-
-    if (progress < 1) {
-      requestAnimationFrame(updateCount);
-    } else {
-      animatedCounts.value[index] = target;
-    }
-  };
-
-  requestAnimationFrame(updateCount);
-};
-
-const togglePlayback = () => {
-  if (videoElement.value) {
-    if (isPlaying.value) {
-      videoElement.value.pause();
-    } else {
-      videoElement.value.play();
-    }
-    isPlaying.value = !isPlaying.value;
-  }
-};
-
-const animateProgress = () => {
-  // Reset progress instantly
-  isAnimating.value = false;
-  progressWidth.value = 0;
-
-  // Start animation after a small delay
-  setTimeout(() => {
-    isAnimating.value = true;
-    progressWidth.value = 100;
-  }, 100);
-
-  // Change text and restart when animation completes
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % words.length;
-    if (rotatingText.value) {
-      rotatingText.value.textContent = words[currentIndex] ?? "";
-    }
-    // Start next cycle
-    animateProgress();
-  }, 3000);
-};
-
-onMounted(() => {
-  animateProgress();
-
-  // Scroll animation for illustration and counter
-  const handleScroll = () => {
-    // Illustration animation
-    if (illustrationElement.value) {
-      const rect = illustrationElement.value.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (windowHeight - rect.top) / windowHeight),
-      );
-      illustrationOffset.value = 100 - scrollProgress * 100;
-    }
-
-    // Map parallax effect
-    if (mapElement.value) {
-      const rect = mapElement.value.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Parallax movement
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        const scrolled = windowHeight - rect.top;
-        mapOffset.value = -(scrolled * 0.15);
-      }
-    }
-
-    // Counter animation trigger
-    if (counterSection.value && !hasCountedUp.value) {
-      const rect = counterSection.value.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Trigger animation when section is 70% in view
-      if (rect.top < windowHeight * 0.7) {
-        hasCountedUp.value = true;
-        stats.forEach((stat, index) => {
-          setTimeout(() => {
-            animateCounter(index, stat.target);
-          }, index * 200); // Stagger animation for each counter
-        });
-      }
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // Initial position
-
-  onBeforeUnmount(() => {
-    window.removeEventListener("scroll", handleScroll);
-  });
-});
+const backgroundIcons = [
+  {
+    positionClass: "right-[20%] top-[20%]",
+    svg: `<img src="data:image/svg+xml,%3csvg width='39' height='45' viewBox='0 0 39 45' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4.35993 8.12197C-0.593748 13.8731 -1.08911 28.1803 2.52242 35.9656C7.8417 47.1326 27.7987 47.1679 33.3327 36.604C37.5794 28.3821 36.4727 17.5359 38.6821 0.572389C22.3362 3.68367 9.16665 2.37763 4.35993 8.12197Z' fill='%23B2EDA1' fill-opacity='0.3'/%3e%3c/svg%3e" alt="bg-shape-1" />`,
+  },
+  {
+    positionClass: "left-[44%] top-[35%]",
+    svg: `<img src="data:image/svg+xml,%3csvg width='52' height='41' viewBox='0 0 52 41' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M18.6144 0.0465448C13.3054 -0.784969 1.64645 9.71291 0.397269 16.469C-1.99699 29.5653 6.64316 41.5183 20.5923 40.8947C28.816 40.4789 36.6234 31.2283 51.9258 21.2502C36.4152 10.7523 28.0873 1.81351 18.6144 0.0465448Z' fill='%23B2EDA1' fill-opacity='0.3'/%3e%3c/svg%3e" alt="bg-shape-2" />`,
+  },
+  {
+    positionClass: "left-[35%] top-[18%]",
+    svg: `<img src="data:image/svg+xml,%3csvg width='49' height='47' viewBox='0 0 49 47' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.82762 7.31652C-2.25929 15.2616 -1.57861 29.3022 8.24752 39.1752C17.8521 48.9776 31.6961 50.2641 39.7268 38.9026C45.4458 31.1026 44.49 18.684 48.0973 0.246201C29.4497 3.29007 16.6336 1.84265 8.82762 7.31652Z' fill='%23B2EDA1' fill-opacity='0.3'/%3e%3c/svg%3e" alt="bg-shape-3" />`,
+  },
+];
 
 const features = [
   {
     iconSvg:
-      "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M38.75%2039.5752H34.125C33.1%2039.5752%2032.25%2038.7252%2032.25%2037.7002C32.25%2036.6752%2033.1%2035.8252%2034.125%2035.8252H38.75C39.775%2035.8252%2040.625%2036.6752%2040.625%2037.7002C40.625%2038.7252%2039.775%2039.5752%2038.75%2039.5752Z'%20fill='%23004D42'/%3e%3cpath%20d='M27.425%2039.5752H11.25C10.225%2039.5752%209.375%2038.7252%209.375%2037.7002C9.375%2036.6752%2010.225%2035.8252%2011.25%2035.8252H27.425C28.45%2035.8252%2029.3%2036.6752%2029.3%2037.7002C29.3%2038.7252%2028.475%2039.5752%2027.425%2039.5752Z'%20fill='%23004D42'/%3e%3cpath%20d='M38.7508%2030.175H24.9258C23.9008%2030.175%2023.0508%2029.325%2023.0508%2028.3C23.0508%2027.275%2023.9008%2026.425%2024.9258%2026.425H38.7508C39.7758%2026.425%2040.6258%2027.275%2040.6258%2028.3C40.6258%2029.325%2039.7758%2030.175%2038.7508%2030.175Z'%20fill='%23004D42'/%3e%3cpath%20d='M18.175%2030.175H11.25C10.225%2030.175%209.375%2029.325%209.375%2028.3C9.375%2027.275%2010.225%2026.425%2011.25%2026.425H18.175C19.2%2026.425%2020.05%2027.275%2020.05%2028.3C20.05%2029.325%2019.2%2030.175%2018.175%2030.175Z'%20fill='%23004D42'/%3e%3cpath%20opacity='0.4'%20d='M35.475%200H14.525C5.425%200%200%205.425%200%2014.525V35.45C0%2044.575%205.425%2050%2014.525%2050H35.45C44.55%2050%2049.975%2044.575%2049.975%2035.475V14.525C50%205.425%2044.575%200%2035.475%200Z'%20fill='%23004D42'/%3e%3c/svg%3e",
+      "data:image/svg+xml,%3csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M38.75 39.5752H34.125C33.1 39.5752 32.25 38.7252 32.25 37.7002C32.25 36.6752 33.1 35.8252 34.125 35.8252H38.75C39.775 35.8252 40.625 36.6752 40.625 37.7002C40.625 38.7252 39.775 39.5752 38.75 39.5752Z' fill='%23004D42'/%3e%3cpath d='M27.425 39.5752H11.25C10.225 39.5752 9.375 38.7252 9.375 37.7002C9.375 36.6752 10.225 35.8252 11.25 35.8252H27.425C28.45 35.8252 29.3 36.6752 29.3 37.7002C29.3 38.7252 28.475 39.5752 27.425 39.5752Z' fill='%23004D42'/%3e%3cpath d='M38.7508 30.175H24.9258C23.9008 30.175 23.0508 29.325 23.0508 28.3C23.0508 27.275 23.9008 26.425 24.9258 26.425H38.7508C39.7758 26.425 40.6258 27.275 40.6258 28.3C40.6258 29.325 39.7758 30.175 38.7508 30.175Z' fill='%23004D42'/%3e%3cpath d='M18.175 30.175H11.25C10.225 30.175 9.375 29.325 9.375 28.3C9.375 27.275 10.225 26.425 11.25 26.425H18.175C19.2 26.425 20.05 27.275 20.05 28.3C20.05 29.325 19.2 30.175 18.175 30.175Z' fill='%23004D42'/%3e%3cpath opacity='0.4' d='M35.475 0H14.525C5.425 0 0 5.425 0 14.525V35.45C0 44.575 5.425 50 14.525 50H35.45C44.55 50 49.975 44.575 49.975 35.475V14.525C50 5.425 44.575 0 35.475 0Z' fill='%23004D42'/%3e%3c/svg%3e",
     title: "Used advanced technologies",
     description:
       "I must explain to you how all this mistaken. Idea of main denouncing pleasure and praising pain was born",
   },
   {
     iconSvg:
-      "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20opacity='0.4'%20d='M50%2025C50%2037.6%2040.6499%2048.025%2028.5249%2049.75C27.3749%2049.925%2026.2%2050%2025%2050C18.1%2050%2011.85%2047.2%207.32498%2042.675C2.79998%2038.15%200%2031.9%200%2025C0%2011.2%2011.2%200%2025%200C31.9%200%2038.15%202.8%2042.675%207.325C47.2%2011.85%2050%2018.1%2050%2025Z'%20fill='%2344C486'/%3e%3cpath%20d='M32.0759%2020.5748L25.8758%2026.7748L42.2008%2043.0998C41.3008%2043.9748%2040.3258%2044.7748%2039.3008%2045.4998L23.2258%2029.4248L17.0508%2035.5998L29.8508%2048.4248C30.1258%2048.6998%2030.3009%2049.0498%2030.3759%2049.3998C30.3759%2049.3998%2030.3759%2049.3998%2030.3759%2049.4248C29.7759%2049.5498%2029.1508%2049.6748%2028.5258%2049.7498C27.7258%2049.8748%2026.9258%2049.9498%2026.1008%2049.9748L14.4008%2038.2498L8.70078%2043.9498C8.22578%2043.5498%207.77581%2043.1248%207.32581%2042.6748C6.87581%2042.2248%206.45078%2041.7748%206.05078%2041.2998L41.3009%206.0498C41.7759%206.4498%2042.2258%206.8748%2042.6758%207.3248C43.1258%207.7748%2043.5509%208.2248%2043.9509%208.6998L34.7259%2017.9248L48.9509%2032.1498C48.5509%2033.4748%2048.0508%2034.7248%2047.4508%2035.9498L32.0759%2020.5748Z'%20fill='%2344C486'/%3e%3c/svg%3e",
+      "data:image/svg+xml,%3csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='0.4' d='M50 25C50 37.6 40.6499 48.025 28.5249 49.75C27.3749 49.925 26.2 50 25 50C18.1 50 11.85 47.2 7.32498 42.675C2.79998 38.15 0 31.9 0 25C0 11.2 11.2 0 25 0C31.9 0 38.15 2.8 42.675 7.325C47.2 11.85 50 18.1 50 25Z' fill='%2344C486'/%3e%3cpath d='M32.0759 20.5748L25.8758 26.7748L42.2008 43.0998C41.3008 43.9748 40.3258 44.7748 39.3008 45.4998L23.2258 29.4248L17.0508 35.5998L29.8508 48.4248C30.1258 48.6998 30.3009 49.0498 30.3759 49.3998C30.3759 49.3998 30.3759 49.3998 30.3759 49.4248C29.7759 49.5498 29.1508 49.6748 28.5258 49.7498C27.7258 49.8748 26.9258 49.9498 26.1008 49.9748L14.4008 38.2498L8.70078 43.9498C8.22578 43.5498 7.77581 43.1248 7.32581 42.6748C6.87581 42.2248 6.45078 41.7748 6.05078 41.2998L41.3009 6.0498C41.7759 6.4498 42.2258 6.8748 42.6758 7.3248C43.1258 7.7748 43.5509 8.2248 43.9509 8.6998L34.7259 17.9248L48.9509 32.1498C48.5509 33.4748 48.0508 34.7248 47.4508 35.9498L32.0759 20.5748Z' fill='%2344C486'/%3e%3c/svg%3e",
     title: "Clean design & Typography",
     description:
       "I must explain to you how all this mistaken. Idea of main denouncing pleasure and praising pain was born",
   },
   {
     iconSvg:
-      "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20opacity='0.4'%20d='M50%2012.5V37.5C50%2045%2045.8333%2050%2036.1111%2050H13.8889C4.16667%2050%200%2045%200%2037.5V12.5C0%205%204.16667%200%2013.8889%200H36.1111C45.8333%200%2050%205%2050%2012.5Z'%20fill='%23433968'/%3e%3cpath%20d='M34.7218%200V18.7909C34.7218%2019.8428%2033.2773%2020.3688%2032.3884%2019.6755L25.9441%2014.5594C25.4163%2014.129%2024.5828%2014.129%2024.055%2014.5594L17.6108%2019.6755C16.7219%2020.3927%2015.2773%2019.8428%2015.2773%2018.7909V0H34.7218Z'%20fill='%23433968'/%3e%3cpath%20d='M40.2795%2030.875H28.474C27.3351%2030.875%2026.3906%2030.025%2026.3906%2029C26.3906%2027.975%2027.3351%2027.125%2028.474%2027.125H40.2795C41.4184%2027.125%2042.3628%2027.975%2042.3628%2029C42.3628%2030.025%2041.4184%2030.875%2040.2795%2030.875Z'%20fill='%23433968'/%3e%3cpath%20d='M40.2765%2040.875H16.6654C15.5265%2040.875%2014.582%2040.025%2014.582%2039C14.582%2037.975%2015.5265%2037.125%2016.6654%2037.125H40.2765C41.4154%2037.125%2042.3598%2037.975%2042.3598%2039C42.3598%2040.025%2041.4154%2040.875%2040.2765%2040.875Z'%20fill='%23433968'/%3e%3c/svg%3e",
+      "data:image/svg+xml,%3csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='0.4' d='M50 12.5V37.5C50 45 45.8333 50 36.1111 50H13.8889C4.16667 50 0 45 0 37.5V12.5C0 5 4.16667 0 13.8889 0H36.1111C45.8333 0 50 5 50 12.5Z' fill='%23433968'/%3e%3cpath d='M34.7218 0V18.7909C34.7218 19.8428 33.2773 20.3688 32.3884 19.6755L25.9441 14.5594C25.4163 14.129 24.5828 14.129 24.055 14.5594L17.6108 19.6755C16.7219 20.3927 15.2773 19.8428 15.2773 18.7909V0H34.7218Z' fill='%23433968'/%3e%3cpath d='M40.2795 30.875H28.474C27.3351 30.875 26.3906 30.025 26.3906 29C26.3906 27.975 27.3351 27.125 28.474 27.125H40.2795C41.4184 27.125 42.3628 27.975 42.3628 29C42.3628 30.025 41.4184 30.875 40.2795 30.875Z' fill='%23433968'/%3e%3cpath d='M40.2765 40.875H16.6654C15.5265 40.875 14.582 40.025 14.582 39C14.582 37.975 15.5265 37.125 16.6654 37.125H40.2765C41.4154 37.125 42.3598 37.975 42.3598 39C42.3598 40.025 41.4154 40.875 40.2765 40.875Z' fill='%23433968'/%3e%3c/svg%3e",
     title: "Best customer support",
     description:
       "I must explain to you how all this mistaken. Idea of main denouncing pleasure and praising pain was born",
   },
 ];
+
+// Track visibility of the section to trigger the count up
+const targetIsVisible = useElementVisibility(counterSection);
+
+// Map stats to transition objects
+const stats = statsData.map((stat) => {
+  const source = ref(0);
+  const output = useTransition(source, {
+    duration: 2500,
+    transition: [0.75, 0, 0.25, 1],
+  });
+
+  return {
+    ...stat,
+    source,
+    currentValue: output,
+  };
+});
+
+const animateProgress = () => {
+  isAnimating.value = false;
+  progressWidth.value = 0;
+  setTimeout(() => {
+    isAnimating.value = true;
+    progressWidth.value = 100;
+  }, 100);
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % words.length;
+    if (rotatingText.value)
+      rotatingText.value.textContent = words[currentIndex] ?? "";
+    animateProgress();
+  }, 3000);
+};
+
+const togglePlayback = () => {
+  if (videoElement.value) {
+    isPlaying.value ? videoElement.value.pause() : videoElement.value.play();
+    isPlaying.value = !isPlaying.value;
+  }
+};
+
+// Watch visibility to trigger animation
+watch(targetIsVisible, (isVisible) => {
+  if (isVisible) {
+    stats.forEach((stat) => {
+      stat.source.value = stat.target;
+    });
+  }
+});
+
+onMounted(() => {
+  animateProgress();
+});
 </script>
